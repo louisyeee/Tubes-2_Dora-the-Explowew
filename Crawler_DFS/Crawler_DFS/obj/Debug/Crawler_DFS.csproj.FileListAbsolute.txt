@@ -1,8 +1,0 @@
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\bin\Debug\Crawler_DFS.exe.config
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\bin\Debug\Crawler_DFS.exe
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\bin\Debug\Crawler_DFS.pdb
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\obj\Debug\Crawler_DFS.csproj.AssemblyReference.cache
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\obj\Debug\Crawler_DFS.csproj.SuggestedBindingRedirects.cache
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\obj\Debug\Crawler_DFS.csproj.CoreCompileInputs.cache
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\obj\Debug\Crawler_DFS.exe
-C:\Users\ASUS\source\repos\Crawler_DFS\Crawler_DFS\obj\Debug\Crawler_DFS.pdb
