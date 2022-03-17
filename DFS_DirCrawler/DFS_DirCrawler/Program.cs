@@ -15,7 +15,7 @@ namespace DFS_DirCrawler
         static void Main()
         {
             DirCrawlerDFS dirCrawlerDFS = new DirCrawlerDFS();
-            dirCrawlerDFS.searchAll(@"D:\Tubes 2 Stima", "test.txt");
+            dirCrawlerDFS.searchFirst(@"D:\Tubes 2 Stima", "test.txt");
 
             //create a form 
             System.Windows.Forms.Form form = new System.Windows.Forms.Form();

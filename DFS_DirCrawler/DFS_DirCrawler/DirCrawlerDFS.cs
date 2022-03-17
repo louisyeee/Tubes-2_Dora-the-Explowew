@@ -30,17 +30,29 @@ namespace DFS_DirCrawler
             while (myStack.Count > 0 && !found)
             {
                 string currPath = (string)myStack.Pop();
-                string[] currDirs = Directory.GetDirectories(@currPath);
-                string[] currFiles = Directory.GetFiles(@currPath);
+                string[] currDirs;
+                string[] currFiles;
+                try
+                {
+                    currDirs = Directory.GetDirectories(@currPath);
+                }
+                catch {
+                    currDirs = new string[] { };
+                }
+
+                try
+                {
+                    currFiles = Directory.GetFiles(@currPath);
+                }
+                catch
+                {
+                    currFiles = new string[] { };
+                }
+
 
                 foreach (string file in currFiles)
                 {
-
-                    if (fileTarget == Path.GetFileName(file))
-                    {
-                        results.Add(file);
-                        found = true;
-                    }
+                    myStack.Push(file);
                     this.drawPohon(currPath, file);
                 }
 
@@ -49,10 +61,33 @@ namespace DFS_DirCrawler
                     myStack.Push(dir);
                     this.drawPohon(currPath, dir);
                 }
-                
+                if (fileTarget == Path.GetFileName(currPath))
+                {
+                    results.Add(currPath);
+                    found = true;
+                } else if( currFiles.Length == 0 && currDirs.Length == 0)
+                {
+                    Console.WriteLine("TEST" + currPath);
+                    giveColor(currPath, rootPath, "red");
+                }
 
+                Console.WriteLine(currPath);                
             }
-
+            
+            foreach(string result in results)
+            {
+                giveColor(result, rootPath, "blue");
+            }
+            
+            this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).LabelText = Path.GetFileName(rootPath);
+            if (results.Count == 0)
+            {
+                this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Blue;
+            }
             this.paths = results;
         }
         public void searchAll(string rootPath, string fileTarget)
@@ -65,36 +100,64 @@ namespace DFS_DirCrawler
             while (myStack.Count > 0)
             {
                 string currPath = (string)myStack.Pop();
-                string[] currDirs = Directory.GetDirectories(@currPath);
-                string[] currFiles = Directory.GetFiles(@currPath);
+                string[] currDirs;
+                string[] currFiles;
+                try
+                {
+                    currDirs = Directory.GetDirectories(@currPath);
+                }
+                catch
+                {
+                    currDirs = new string[] { };
+                }
+
+                try
+                {
+                    currFiles = Directory.GetFiles(@currPath);
+                }
+                catch
+                {
+                    currFiles = new string[] { };
+                }
+
 
                 foreach (string file in currFiles)
                 {
-                    Console.WriteLine("currPath =" + currPath);
-                    Console.WriteLine("DirName =" + Path.GetFileName(currPath));
-                    Console.WriteLine("file =" + file);
-                    
-                    if (fileTarget == Path.GetFileName(file))
-                    {
-                        results.Add(file);
-                    }
-
+                    myStack.Push(file);
                     this.drawPohon(currPath, file);
-                    
                 }
+
                 foreach (string dir in currDirs)
                 {
-                    Console.WriteLine("currPath =" + currPath);
-                    Console.WriteLine("DirName =" + Path.GetFileName(currPath));
-                    Console.WriteLine("dir =" + dir);
                     myStack.Push(dir);
-
                     this.drawPohon(currPath, dir);
-                    
                 }
+                if (fileTarget == Path.GetFileName(currPath))
+                {
+                    results.Add(currPath);
+                }
+                else if (currFiles.Length == 0 && currDirs.Length == 0)
+                {
+                    Console.WriteLine("TEST" + currPath);
+                    giveColor(currPath, rootPath, "red");
+                }
+
+                Console.WriteLine(currPath);
             }
 
-
+            foreach (string result in results)
+            {
+                giveColor(result, rootPath, "blue");
+            }
+            this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).LabelText = Path.GetFileName(rootPath);
+            if (results.Count == 0)
+            {
+                this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+            }
+            else
+            {
+                this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Blue;
+            }
             this.paths = results;
         }
 
@@ -112,14 +175,36 @@ namespace DFS_DirCrawler
 
         public void drawPohon(string currPath, string path)
         {
-            if (this.Graph.FindNode(Path.GetFileName(path)) is null)
+            string grand = Path.GetDirectoryName(currPath);
+            this.Graph.AddEdge(Path.GetFileName(currPath) + Path.GetFileName(grand), Path.GetFileName(path) + Path.GetFileName(currPath));
+            this.Graph.FindNode(Path.GetFileName(path) + Path.GetFileName(currPath)).LabelText = Path.GetFileName(path);
+        }
+
+        public void giveColor(string path, string rootPath,string color)
+        {
+            List<string> targetNodes = new List<string>();
+            while (!path.Equals(rootPath))
             {
-                this.Graph.AddEdge(Path.GetFileName(currPath), Path.GetFileName(path));
+                string parent = Path.GetDirectoryName(path);
+                targetNodes.Add(Path.GetFileName(path) + Path.GetFileName(parent));
+                path = parent;
             }
-            else
+
+            foreach(var edge in this.Graph.Edges)
             {
-                this.Graph.AddEdge(Path.GetFileName(currPath), Path.GetFileName(path) + Path.GetFileName(currPath));
-                this.Graph.FindNode(Path.GetFileName(path) + Path.GetFileName(currPath)).LabelText = Path.GetFileName(path);
+                if (targetNodes.Contains(edge.TargetNode.Id))
+                {
+                    if (color.Equals("red")) 
+                    { 
+                        edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                        edge.TargetNode.Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+                    }
+                    else if (color.Equals("blue"))
+                    {
+                        edge.Attr.Color = Microsoft.Msagl.Drawing.Color.Blue;
+                        edge.TargetNode.Attr.Color = Microsoft.Msagl.Drawing.Color.Blue;
+                    }
+                }
             }
         }
     }
