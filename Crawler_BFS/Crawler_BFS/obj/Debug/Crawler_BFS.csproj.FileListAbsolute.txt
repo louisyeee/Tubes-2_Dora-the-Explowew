@@ -1,0 +1,15 @@
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.csproj.AssemblyReference.cache
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.csproj.SuggestedBindingRedirects.cache
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.Properties.Resources.resources
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.csproj.GenerateResource.cache
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.csproj.CoreCompileInputs.cache
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\Crawler_BFS.exe.config
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\Crawler_BFS.exe
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\Crawler_BFS.pdb
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\AutomaticGraphLayout.dll
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\AutomaticGraphLayout.Drawing.dll
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\Microsoft.Msagl.GraphViewerGdi.dll
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\bin\Debug\Microsoft.Msagl.WpfGraphControl.dll
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.csproj.CopyComplete
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.exe
+D:\Louis\C#\Crawler_BFS\Crawler_BFS\obj\Debug\Crawler_BFS.pdb
