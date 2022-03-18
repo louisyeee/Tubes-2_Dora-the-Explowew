@@ -67,7 +67,7 @@ namespace DFS_DirCrawler
                     found = true;
                 } else if( currFiles.Length == 0 && currDirs.Length == 0)
                 {
-                    Console.WriteLine("TEST" + currPath);
+                  
                     giveColor(currPath, rootPath, "red");
                 }
 
@@ -138,7 +138,6 @@ namespace DFS_DirCrawler
                 }
                 else if (currFiles.Length == 0 && currDirs.Length == 0)
                 {
-                    Console.WriteLine("TEST" + currPath);
                     giveColor(currPath, rootPath, "red");
                 }
 
