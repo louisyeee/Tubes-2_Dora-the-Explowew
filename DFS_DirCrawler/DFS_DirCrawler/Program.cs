@@ -20,7 +20,7 @@ namespace DFS_DirCrawler
             // Argumennya ada 2 :
             //    -  string root path belakangnya kasih @
             //    -  string nama file yang mau dicari pake extensinya
-            dirCrawlerDFS.searchFirst(@"D:\Tubes\Stima\root", "Tugas-Besar-2-IF2211-Strategi-Algoritma-2022.pdf");
+            dirCrawlerDFS.searchFirst(@"D:\ITB", "link.txt");
             // Hasilnya nanti objeknya punya dua atribut:
             //    -  List<string> Paths yang isinya path-path ke file yang ditemuin,
             //          kalo ga ketemu nanti si Paths nya kosong

@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Tubes_Stima
 {
@@ -31,6 +30,7 @@ namespace Tubes_Stima
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
             this.title = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
@@ -47,6 +47,7 @@ namespace Tubes_Stima
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.searchButton = new System.Windows.Forms.Button();
             this.fileNameInput = new System.Windows.Forms.TextBox();
+            this.graph = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             this.SuspendLayout();
             // 
             // title
@@ -195,6 +196,7 @@ namespace Tubes_Stima
             this.searchButton.TabIndex = 14;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // fileNameInput
             // 
@@ -208,12 +210,53 @@ namespace Tubes_Stima
             this.fileNameInput.Text = "e.g. \"word.pdf\"";
             this.fileNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // graph
+            // 
+            this.graph.ArrowheadLength = 10D;
+            this.graph.AsyncLayout = false;
+            this.graph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.graph.BackwardEnabled = false;
+            this.graph.BuildHitTree = true;
+            this.graph.CurrentLayoutMethod = Microsoft.Msagl.GraphViewerGdi.LayoutMethod.UseSettingsOfTheGraph;
+            this.graph.EdgeInsertButtonVisible = false;
+            this.graph.FileName = "";
+            this.graph.ForwardEnabled = false;
+            this.graph.Graph = null;
+            this.graph.InsertingEdge = false;
+            this.graph.LayoutAlgorithmSettingsButtonVisible = false;
+            this.graph.LayoutEditingEnabled = true;
+            this.graph.Location = new System.Drawing.Point(626, 119);
+            this.graph.LooseOffsetForRouting = 0.25D;
+            this.graph.MaximumSize = new System.Drawing.Size(300, 300);
+            this.graph.MouseHitDistance = 0.05D;
+            this.graph.Name = "graph";
+            this.graph.NavigationVisible = true;
+            this.graph.NeedToCalculateLayout = true;
+            this.graph.OffsetForRelaxingInRouting = 0.6D;
+            this.graph.PaddingForEdgeRouting = 8D;
+            this.graph.PanButtonPressed = false;
+            this.graph.SaveAsImageEnabled = true;
+            this.graph.SaveAsMsaglEnabled = true;
+            this.graph.SaveButtonVisible = true;
+            this.graph.SaveGraphButtonVisible = true;
+            this.graph.SaveInVectorFormatEnabled = true;
+            this.graph.Size = new System.Drawing.Size(300, 300);
+            this.graph.TabIndex = 17;
+            this.graph.TightOffsetForRouting = 0.125D;
+            this.graph.ToolBarIsVisible = true;
+            this.graph.Transform = ((Microsoft.Msagl.Core.Geometry.Curves.PlaneTransformation)(resources.GetObject("graph.Transform")));
+            this.graph.UndoRedoButtonsVisible = true;
+            this.graph.WindowZoomButtonPressed = false;
+            this.graph.ZoomF = 1D;
+            this.graph.ZoomWindowThreshold = 0.05D;
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1135, 661);
+            this.Controls.Add(this.graph);
             this.Controls.Add(this.fileNameInput);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.radioButton2);
@@ -254,6 +297,7 @@ namespace Tubes_Stima
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button searchButton;
         private TextBox fileNameInput;
+        private Microsoft.Msagl.GraphViewerGdi.GViewer graph;
     }
 }
 

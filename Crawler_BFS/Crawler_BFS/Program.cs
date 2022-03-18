@@ -11,9 +11,9 @@ namespace Crawler_BFS
     {
         static void Main(string[] args)
         {
-            string rootPath = @"E:\Temp\demo\FileSystem";
+            string rootPath = @"D:\ITB\IF-3";
             DirCrawlerBFS dirCrawlerBFS = new DirCrawlerBFS();
-            dirCrawlerBFS.searchFirst(rootPath, "tesAll.txt");
+            dirCrawlerBFS.searchFirst(rootPath, "link.txt");
 
 
 
