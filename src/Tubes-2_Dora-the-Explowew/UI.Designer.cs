@@ -31,8 +31,6 @@ namespace Tubes_Stima
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("TOLOL");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("TOLOL");
             this.title = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
@@ -52,8 +50,7 @@ namespace Tubes_Stima
             this.graph = new Microsoft.Msagl.GraphViewerGdi.GViewer();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Hyperlink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // title
@@ -278,23 +275,16 @@ namespace Tubes_Stima
             this.label8.Text = "Path file:";
             this.label8.Visible = false;
             // 
-            // listView1
+            // linkLabel1
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Hyperlink});
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(410, 524);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(712, 117);
-            this.listView1.TabIndex = 20;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // Hyperlink
-            // 
-            this.Hyperlink.Width = 600;
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(407, 530);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(79, 16);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "placeholder";
+            this.linkLabel1.Visible = false;
             // 
             // UI
             // 
@@ -302,7 +292,7 @@ namespace Tubes_Stima
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1135, 661);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.graph);
@@ -349,8 +339,7 @@ namespace Tubes_Stima
         private Microsoft.Msagl.GraphViewerGdi.GViewer graph;
         private Label label6;
         private Label label8;
-        private ListView listView1;
-        private ColumnHeader Hyperlink;
+        private LinkLabel linkLabel1;
     }
 }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace Tubes_Stima
@@ -8,6 +7,7 @@ namespace Tubes_Stima
     {
         private Microsoft.Msagl.Drawing.Graph graph;
         private List<string> paths;
+        private List<string> results;
 
         public DirCrawlerBFS()
         {
@@ -17,114 +17,132 @@ namespace Tubes_Stima
 
         public void searchFirst(string rootPath, string fileTarget)
         {
-            List<string> results = new List<string>();
-            List<string> nonResults = new List<string>();
-            string[] dirs = Directory.GetDirectories(rootPath, "*", SearchOption.TopDirectoryOnly);
+            results = new List<string>();
+            Queue<string> myQueue = new Queue<string>();
             bool found = false;
-            string[] files = Directory.GetFiles(rootPath, "*.*", SearchOption.TopDirectoryOnly);
-            foreach (string file in files)
+            myQueue.Enqueue(rootPath);
+
+            while (myQueue.Count > 0 && !found)
             {
-                this.drawPohon(rootPath, file);
-                if (Path.GetFileName(file) == fileTarget)
+                string currPath = (string)myQueue.Dequeue();
+                string[] currDirs;
+                string[] currFiles;
+                try
                 {
-                    results.Add(file);
-                    Console.WriteLine("Ketemu di: ");
-                    Console.WriteLine(file);
+                    currDirs = Directory.GetDirectories(@currPath);
+                }
+                catch
+                {
+                    currDirs = new string[] { };
+                }
+
+                try
+                {
+                    currFiles = Directory.GetFiles(@currPath);
+                }
+                catch
+                {
+                    currFiles = new string[] { };
+                }
+
+                foreach (string file in currFiles)
+                {
+                    myQueue.Enqueue(file);
+                    this.drawPohon(currPath, file);
+                }
+                foreach (string dir in currDirs)
+                {
+                    myQueue.Enqueue(dir);
+                    this.drawPohon(currPath, dir);
+                }
+                if (fileTarget == Path.GetFileName(currPath))
+                {
+                    results.Add(currPath);
                     found = true;
+
+
                 }
                 else
                 {
-                    nonResults.Add(file);
-                }
-            }
-
-            if (!found)
-            {
-                foreach (string dir in dirs)
-                {
-                    this.drawPohon(rootPath, dir);
-                    files = Directory.GetFiles(dir, "*.*", SearchOption.TopDirectoryOnly);
-                    foreach (string file in files)
-                    {
-                        this.drawPohon(dir, file);
-                        if (Path.GetFileName(file) == fileTarget)
-                        {
-
-                            results.Add(file);
-                            Console.WriteLine("Ketemu di: ");
-                            Console.WriteLine(file);
-                            found = true;
-                        }
-                        else
-                        {
-                            nonResults.Add(file);
-                        }
-                        if (found)
-                        {
-                            break;
-                        }
-
-                    }
-
-                    foreach (string nonRes in nonResults)
-                    {
-                        giveColor(nonRes, rootPath, "red");
-                    }
-                    foreach (string result in results)
-                    {
-                        giveColor(result, rootPath, "blue");
-                    }
-                }
-
-                if (!found)
-                {
-                    foreach (string dirNew in dirs)
-                    {
-                        searchFirst(dirNew, fileTarget);
-                    }
-                }
-
-            }
-
-            this.paths = results;
-        }
-
-        public void searchAll(string rootPath, string fileTarget)
-        {
-            List<string> results = new List<string>();
-            List<string> nonResults = new List<string>();
-            string[] dirs = Directory.GetDirectories(rootPath, "*", SearchOption.TopDirectoryOnly);
-            string[] files = Directory.GetFiles(rootPath, "*.*", SearchOption.TopDirectoryOnly);
-            foreach (string file in files)
-            {
-                this.drawPohon(rootPath, file);
-                if (Path.GetFileName(file) == fileTarget)
-                {
-                    results.Add(file);
-                    Console.WriteLine("Ketemu di: ");
-                    Console.WriteLine(file);
-                }
-                else
-                {
-                    nonResults.Add(file);
+                    giveColor(currPath, rootPath, "red");
                 }
 
 
-            }
-            foreach (string dir in dirs)
-            {
-                this.drawPohon(rootPath, dir);
-                searchAll(dir, fileTarget);
-            }
-            foreach (string nonRes in nonResults)
-            {
-                giveColor(nonRes, rootPath, "red");
             }
             foreach (string result in results)
             {
                 giveColor(result, rootPath, "blue");
             }
+            this.paths = results;
+        }
 
+        public void searchAll(string rootPath, string fileTarget)
+        {
+            results = new List<string>();
+            List<string> nonResults = new List<string>();
+            Queue<string> myQueue = new Queue<string>();
+            bool found = false;
+            myQueue.Enqueue(rootPath);
+
+            while (myQueue.Count > 0)
+            {
+                string currPath = (string)myQueue.Dequeue();
+                string[] currDirs;
+                string[] currFiles;
+                try
+                {
+                    currDirs = Directory.GetDirectories(@currPath);
+                }
+                catch
+                {
+                    currDirs = new string[] { };
+                }
+
+                try
+                {
+                    currFiles = Directory.GetFiles(@currPath);
+                }
+                catch
+                {
+                    currFiles = new string[] { };
+                }
+
+                foreach (string file in currFiles)
+                {
+                    myQueue.Enqueue(file);
+                    this.drawPohon(currPath, file);
+                }
+                foreach (string dir in currDirs)
+                {
+                    myQueue.Enqueue(dir);
+                    this.drawPohon(currPath, dir);
+                }
+                if (fileTarget == Path.GetFileName(currPath))
+                {
+                    results.Add(currPath);
+                    found = true;
+
+                }
+                else if (currFiles.Length == 0 && currDirs.Length == 0)
+                {
+                    giveColor(currPath, rootPath, "red");
+                }
+
+
+            }
+            foreach (string result in results)
+            {
+                giveColor(result, rootPath, "blue");
+            }
+            //this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).LabelText = Path.GetFileName(rootPath);
+            //if (results.Count == 0)
+            //{
+            //    this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Red;
+            //}
+            //else
+            //{
+            //    this.Graph.FindNode(Path.GetFileName(rootPath) + Path.GetFileName(Path.GetDirectoryName(rootPath))).Attr.Color = Microsoft.Msagl.Drawing.Color.Blue;
+            //}
             this.paths = results;
         }
 
@@ -132,6 +150,12 @@ namespace Tubes_Stima
         {
             get { return this.paths; }
             set { this.paths = value; }
+        }
+        
+        public List<string> Result
+        {
+            get { return this.results; }
+            set { this.results = value; }
         }
 
         public Microsoft.Msagl.Drawing.Graph Graph

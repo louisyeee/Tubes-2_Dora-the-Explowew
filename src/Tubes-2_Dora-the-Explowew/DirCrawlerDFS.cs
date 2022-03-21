@@ -10,6 +10,7 @@ namespace Tubes_Stima
     {
         private Microsoft.Msagl.Drawing.Graph graph;
         private List<string> paths;
+        List<string> results;
 
         public DirCrawlerDFS()
         {
@@ -18,7 +19,7 @@ namespace Tubes_Stima
         }
         public void searchFirst(string rootPath, string fileTarget)
         {
-            List<string> results = new List<string>();
+            results = new List<string>();
             Stack myStack = new Stack();
             bool found = false;
 
@@ -64,7 +65,7 @@ namespace Tubes_Stima
                     results.Add(currPath);
                     found = true;
                 }
-                else if (currFiles.Length == 0 && currDirs.Length == 0)
+                else
                 {
 
                     giveColor(currPath, rootPath, "red");
@@ -91,7 +92,7 @@ namespace Tubes_Stima
         }
         public void searchAll(string rootPath, string fileTarget)
         {
-            List<string> results = new List<string>();
+            results = new List<string>();
             Stack myStack = new Stack();
 
             myStack.Push(rootPath);
@@ -163,6 +164,12 @@ namespace Tubes_Stima
         {
             get { return this.paths; }
             set { this.paths = value; }
+        }
+
+        public List<string> Result
+        {
+            get { return this.results; }
+            set { this.results = value; }
         }
 
         public Microsoft.Msagl.Drawing.Graph Graph
