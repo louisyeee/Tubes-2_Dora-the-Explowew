@@ -31,6 +31,8 @@ namespace Tubes_Stima
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UI));
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("TOLOL");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("TOLOL");
             this.title = new System.Windows.Forms.Label();
             this.divider1 = new System.Windows.Forms.Label();
             this.divider2 = new System.Windows.Forms.Label();
@@ -48,6 +50,10 @@ namespace Tubes_Stima
             this.searchButton = new System.Windows.Forms.Button();
             this.fileNameInput = new System.Windows.Forms.TextBox();
             this.graph = new Microsoft.Msagl.GraphViewerGdi.GViewer();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.Hyperlink = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // title
@@ -82,7 +88,7 @@ namespace Tubes_Stima
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(729, 85);
+            this.label1.Location = new System.Drawing.Point(731, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 31);
             this.label1.TabIndex = 3;
@@ -214,6 +220,7 @@ namespace Tubes_Stima
             // 
             this.graph.ArrowheadLength = 10D;
             this.graph.AsyncLayout = false;
+            this.graph.AutoScroll = true;
             this.graph.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.graph.BackwardEnabled = false;
             this.graph.BuildHitTree = true;
@@ -225,9 +232,8 @@ namespace Tubes_Stima
             this.graph.InsertingEdge = false;
             this.graph.LayoutAlgorithmSettingsButtonVisible = false;
             this.graph.LayoutEditingEnabled = true;
-            this.graph.Location = new System.Drawing.Point(626, 119);
+            this.graph.Location = new System.Drawing.Point(382, 110);
             this.graph.LooseOffsetForRouting = 0.25D;
-            this.graph.MaximumSize = new System.Drawing.Size(300, 300);
             this.graph.MouseHitDistance = 0.05D;
             this.graph.Name = "graph";
             this.graph.NavigationVisible = true;
@@ -240,7 +246,7 @@ namespace Tubes_Stima
             this.graph.SaveButtonVisible = true;
             this.graph.SaveGraphButtonVisible = true;
             this.graph.SaveInVectorFormatEnabled = true;
-            this.graph.Size = new System.Drawing.Size(300, 300);
+            this.graph.Size = new System.Drawing.Size(748, 351);
             this.graph.TabIndex = 17;
             this.graph.TightOffsetForRouting = 0.125D;
             this.graph.ToolBarIsVisible = true;
@@ -250,12 +256,55 @@ namespace Tubes_Stima
             this.graph.ZoomF = 1D;
             this.graph.ZoomWindowThreshold = 0.05D;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(406, 464);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 22);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Time spent";
+            this.label6.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(406, 499);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(76, 22);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Path file:";
+            this.label8.Visible = false;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Hyperlink});
+            this.listView1.HideSelection = false;
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.listView1.Location = new System.Drawing.Point(410, 524);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(712, 117);
+            this.listView1.TabIndex = 20;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // Hyperlink
+            // 
+            this.Hyperlink.Width = 600;
+            // 
             // UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1135, 661);
+            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.graph);
             this.Controls.Add(this.fileNameInput);
             this.Controls.Add(this.searchButton);
@@ -298,6 +347,10 @@ namespace Tubes_Stima
         private System.Windows.Forms.Button searchButton;
         private TextBox fileNameInput;
         private Microsoft.Msagl.GraphViewerGdi.GViewer graph;
+        private Label label6;
+        private Label label8;
+        private ListView listView1;
+        private ColumnHeader Hyperlink;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -61,6 +62,7 @@ namespace Tubes_Stima
 
         private void searchButton_Click(object sender, EventArgs e)
         {
+            Stopwatch sw = Stopwatch.StartNew();
             this.filename = this.fileNameInput.Text;
             this.findAll = this.checkBox1.Checked;
             if (this.checkBox1.Checked)
@@ -72,7 +74,9 @@ namespace Tubes_Stima
             }
             Microsoft.Msagl.Drawing.Graph graph = dirCrawlerDFS.Graph;
             this.graph.Graph = graph;
-            this.graph.Dock = DockStyle.Fill;
+            sw.Stop();
+            this.label6.Visible = true;
+            this.label6.Text = String.Format("Time spent: {0:0.0#} s", sw.Elapsed.TotalMilliseconds / 1000);
         }
     }
 }
