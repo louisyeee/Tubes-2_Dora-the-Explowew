@@ -66,7 +66,7 @@ namespace Crawler_BFS
                     found = true;
                     
                     
-                }else if (currFiles.Length == 0 && currDirs.Length == 0)
+                }else
                 {
                     giveColor(currPath, rootPath, "red");
                 }
