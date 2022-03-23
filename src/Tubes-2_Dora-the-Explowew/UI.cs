@@ -11,6 +11,7 @@ namespace Tubes_Stima
     {
         private DirCrawlerBFS dirCrawlerBFS;
         private DirCrawlerDFS dirCrawlerDFS;
+        private Microsoft.Msagl.Drawing.Graph graphTree;
         private string rootFolder;
         private string filename;
         private bool findAll = false;
@@ -20,38 +21,21 @@ namespace Tubes_Stima
             InitializeComponent();
         }
 
-        private void load_result(string method)
+        private void folderSelect_Click(object sender, EventArgs e)
         {
-            if (method == "BFS")
+            //
+            // OpenFileDialog
+            //
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
-                for (int i = 0; i < dirCrawlerBFS.Result.Count; i++)
-                {
-                    labels.Add(new LinkLabel()
-                    {
-                        Name = "lbl" + i + 1,
-                        Text = dirCrawlerBFS.Result[i],
-                        Font = new System.Drawing.Font("Arial", 8),
-                        ForeColor = System.Drawing.Color.Blue
-                    });
-
-                }
-            }
-            else if (method == "DFS")
+                InitialDirectory = "C:\\Users",
+                IsFolderPicker = true
+            };
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                for (int i = 0; i < dirCrawlerDFS.Result.Count; i++)
-                {
-                    labels.Add(new LinkLabel()
-                    {
-                        Name = "lbl" + i + 1,
-                        Text = dirCrawlerDFS.Result[i],
-                        Font = new System.Drawing.Font("Arial", 8),
-                        ForeColor = System.Drawing.Color.Blue
-                    });
-
-                }
+                this.noRootLabel.Text = dialog.FileName;
+                this.rootFolder = dialog.FileName;
             }
-            
-            placelabels();
         }
 
         private void placelabels()
@@ -71,28 +55,61 @@ namespace Tubes_Stima
 
             }
         }
+
+        private void load_result(string method)
+        {
+            labels.Clear();
+            if (method == "BFS")
+            {
+                if (dirCrawlerBFS.Result.Count > 0)
+                {
+                    for (int i = 0; i < dirCrawlerBFS.Result.Count; i++)
+                    {
+                        labels.Add(new LinkLabel()
+                        {
+                            Name = "lbl" + i + 1,
+                            Text = dirCrawlerBFS.Result[i],
+                            Font = new System.Drawing.Font("Arial", 8),
+                            ForeColor = System.Drawing.Color.Blue
+                        });
+
+                    }
+                } else
+                {
+                    MessageBox.Show("Files " + this.filename + " not found", "Message");
+                }
+                
+            }
+            else if (method == "DFS")
+            {
+                if (dirCrawlerDFS.Result.Count > 0)
+                {
+                    for (int i = 0; i < dirCrawlerDFS.Result.Count; i++)
+                    {
+                        labels.Add(new LinkLabel()
+                        {
+                            Name = "lbl" + i + 1,
+                            Text = dirCrawlerDFS.Result[i],
+                            Font = new System.Drawing.Font("Arial", 8),
+                            ForeColor = System.Drawing.Color.Blue
+                        });
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Files " + this.filename + " not found", "Message");
+                }
+            }
+            
+            placelabels();
+        }
+
         private void hyperlinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LinkLabel link = (LinkLabel)sender;
             var url = System.IO.Directory.GetParent(link.Text);
             Process.Start("explorer.exe", "\"" + url + "\"");
-        }
-
-        private void folderSelect_Click(object sender, EventArgs e)
-        {
-            //
-            // OpenFileDialog
-            //
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog
-            {
-                InitialDirectory = "C:\\Users",
-                IsFolderPicker = true
-            };
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                this.label4.Text = dialog.FileName;
-                this.rootFolder = dialog.FileName;
-            }
         }
 
         private void explore(string method, bool findAll)
@@ -123,24 +140,39 @@ namespace Tubes_Stima
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            this.filename = this.fileNameInput.Text;
-            this.findAll = this.checkBox1.Checked;
-            if (this.checkBox1.Checked)
+            if (this.rootFolder == null)
             {
-                dirCrawlerBFS = new DirCrawlerBFS();
-                explore("BFS", this.findAll);
-            } else
-            {
-                dirCrawlerDFS = new DirCrawlerDFS();
-                explore("DFS", this.findAll);
+                MessageBox.Show("Root folder cannot be null!", "Message");
             }
-            Microsoft.Msagl.Drawing.Graph graph = dirCrawlerDFS.Graph;
-            this.graph.Graph = graph;
-            sw.Stop();
-            this.label6.Visible = true;
-            this.label8.Visible = true;
-            this.label6.Text = String.Format("Time spent: {0:0.0#} s", sw.Elapsed.TotalMilliseconds / 1000);
+            else if (!this.bfsRadioButton.Checked && !this.dfsRadioButton.Checked)
+            {
+
+                MessageBox.Show("Select one method!", "Message");
+            }
+            else
+            {
+                Stopwatch sw = Stopwatch.StartNew();
+                this.filename = this.fileNameInput.Text;
+                this.findAll = this.findAllCheckbox.Checked;
+                if (this.bfsRadioButton.Checked)
+                {
+                    dirCrawlerBFS = new DirCrawlerBFS();
+                    explore("BFS", this.findAll);
+                    graphTree = dirCrawlerBFS.Graph;
+                }
+                else
+                {
+                    dirCrawlerDFS = new DirCrawlerDFS();
+                    explore("DFS", this.findAll);
+                    graphTree = dirCrawlerDFS.Graph;
+                }
+
+                this.graphViewer.Graph = graphTree;
+                sw.Stop();
+                this.timeSpentLabel.Visible = true;
+                this.resultLabel.Visible = true;
+                this.timeSpentLabel.Text = String.Format("Time spent: {0:0.0#} s", sw.Elapsed.TotalMilliseconds / 1000);
+            }
         }
     }
 }
