@@ -55,7 +55,8 @@ namespace Tubes_Stima
                     myQueue.Enqueue(dir);
                     this.drawPohon(currPath, dir);
                 }
-                if (fileTarget == Path.GetFileName(currPath))
+                FileAttributes attr = File.GetAttributes(currPath);
+                if (fileTarget == Path.GetFileName(currPath) && !attr.HasFlag(FileAttributes.Directory))
                 {
                     results.Add(currPath);
                     found = true;
@@ -117,7 +118,8 @@ namespace Tubes_Stima
                     myQueue.Enqueue(dir);
                     this.drawPohon(currPath, dir);
                 }
-                if (fileTarget == Path.GetFileName(currPath))
+                FileAttributes attr = File.GetAttributes(currPath);
+                if (fileTarget == Path.GetFileName(currPath) && !attr.HasFlag(FileAttributes.Directory))
                 {
                     results.Add(currPath);
                     found = true;

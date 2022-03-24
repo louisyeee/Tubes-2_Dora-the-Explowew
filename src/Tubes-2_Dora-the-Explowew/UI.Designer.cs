@@ -58,7 +58,7 @@ namespace Tubes_Stima
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Segoe UI Variable Display", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.title.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.title.Location = new System.Drawing.Point(442, 9);
+            this.title.Location = new System.Drawing.Point(580, 9);
             this.title.Name = "title";
             this.title.Padding = new System.Windows.Forms.Padding(4);
             this.title.Size = new System.Drawing.Size(254, 52);
@@ -70,22 +70,22 @@ namespace Tubes_Stima
             this.divider1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.divider1.Location = new System.Drawing.Point(12, 65);
             this.divider1.Name = "divider1";
-            this.divider1.Size = new System.Drawing.Size(1110, 1);
+            this.divider1.Size = new System.Drawing.Size(1340, 1);
             this.divider1.TabIndex = 1;
             // 
             // divider2
             // 
             this.divider2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.divider2.Location = new System.Drawing.Point(375, 65);
+            this.divider2.Location = new System.Drawing.Point(475, 65);
             this.divider2.Name = "divider2";
-            this.divider2.Size = new System.Drawing.Size(1, 576);
+            this.divider2.Size = new System.Drawing.Size(1, 676);
             this.divider2.TabIndex = 2;
             // 
             // outputLabel
             // 
             this.outputLabel.AutoSize = true;
             this.outputLabel.Font = new System.Drawing.Font("Segoe UI Variable Display", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outputLabel.Location = new System.Drawing.Point(731, 76);
+            this.outputLabel.Location = new System.Drawing.Point(868, 76);
             this.outputLabel.Name = "outputLabel";
             this.outputLabel.Size = new System.Drawing.Size(86, 31);
             this.outputLabel.TabIndex = 3;
@@ -94,20 +94,20 @@ namespace Tubes_Stima
             // inputLabel
             // 
             this.inputLabel.AutoSize = true;
-            this.inputLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 15F);
             this.inputLabel.Location = new System.Drawing.Point(33, 85);
             this.inputLabel.Name = "inputLabel";
-            this.inputLabel.Size = new System.Drawing.Size(68, 31);
+            this.inputLabel.Size = new System.Drawing.Size(73, 33);
             this.inputLabel.TabIndex = 4;
             this.inputLabel.Text = "Input";
             // 
             // chooseRootLabel
             // 
             this.chooseRootLabel.AutoSize = true;
-            this.chooseRootLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chooseRootLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
             this.chooseRootLabel.Location = new System.Drawing.Point(35, 127);
             this.chooseRootLabel.Name = "chooseRootLabel";
-            this.chooseRootLabel.Size = new System.Drawing.Size(211, 22);
+            this.chooseRootLabel.Size = new System.Drawing.Size(243, 27);
             this.chooseRootLabel.TabIndex = 5;
             this.chooseRootLabel.Text = "Choose Starting Directory ";
             // 
@@ -116,9 +116,9 @@ namespace Tubes_Stima
             this.folderSelectButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.folderSelectButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.folderSelectButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.folderSelectButton.Location = new System.Drawing.Point(39, 162);
+            this.folderSelectButton.Location = new System.Drawing.Point(39, 169);
             this.folderSelectButton.Name = "folderSelectButton";
-            this.folderSelectButton.Size = new System.Drawing.Size(124, 31);
+            this.folderSelectButton.Size = new System.Drawing.Size(124, 45);
             this.folderSelectButton.TabIndex = 6;
             this.folderSelectButton.Text = "Choose Folder";
             this.folderSelectButton.UseVisualStyleBackColor = true;
@@ -127,41 +127,44 @@ namespace Tubes_Stima
             // noRootLabel
             // 
             this.noRootLabel.AutoEllipsis = true;
-            this.noRootLabel.Location = new System.Drawing.Point(179, 169);
-            this.noRootLabel.MaximumSize = new System.Drawing.Size(150, 16);
+            this.noRootLabel.AutoSize = true;
+            this.noRootLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.noRootLabel.Location = new System.Drawing.Point(179, 180);
+            this.noRootLabel.MaximumSize = new System.Drawing.Size(150, 48);
             this.noRootLabel.Name = "noRootLabel";
-            this.noRootLabel.Size = new System.Drawing.Size(99, 16);
+            this.noRootLabel.Size = new System.Drawing.Size(142, 24);
             this.noRootLabel.TabIndex = 7;
             this.noRootLabel.Text = "No File Chosen";
             // 
             // inputFIlenameLabel
             // 
             this.inputFIlenameLabel.AutoSize = true;
-            this.inputFIlenameLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputFIlenameLabel.Location = new System.Drawing.Point(39, 215);
+            this.inputFIlenameLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
+            this.inputFIlenameLabel.Location = new System.Drawing.Point(40, 244);
             this.inputFIlenameLabel.Name = "inputFIlenameLabel";
             this.inputFIlenameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.inputFIlenameLabel.Size = new System.Drawing.Size(132, 22);
+            this.inputFIlenameLabel.Size = new System.Drawing.Size(150, 27);
             this.inputFIlenameLabel.TabIndex = 8;
             this.inputFIlenameLabel.Text = "Input File Name";
             // 
             // methodLabel
             // 
             this.methodLabel.AutoSize = true;
-            this.methodLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.methodLabel.Location = new System.Drawing.Point(39, 310);
+            this.methodLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
+            this.methodLabel.Location = new System.Drawing.Point(39, 401);
             this.methodLabel.Name = "methodLabel";
             this.methodLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.methodLabel.Size = new System.Drawing.Size(149, 22);
+            this.methodLabel.Size = new System.Drawing.Size(170, 27);
             this.methodLabel.TabIndex = 10;
             this.methodLabel.Text = "Metode Pencarian";
             // 
             // findAllCheckbox
             // 
             this.findAllCheckbox.AutoSize = true;
-            this.findAllCheckbox.Location = new System.Drawing.Point(39, 275);
+            this.findAllCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.findAllCheckbox.Location = new System.Drawing.Point(39, 342);
             this.findAllCheckbox.Name = "findAllCheckbox";
-            this.findAllCheckbox.Size = new System.Drawing.Size(141, 20);
+            this.findAllCheckbox.Size = new System.Drawing.Size(174, 24);
             this.findAllCheckbox.TabIndex = 11;
             this.findAllCheckbox.Text = "Find All Occurence";
             this.findAllCheckbox.UseVisualStyleBackColor = true;
@@ -169,9 +172,10 @@ namespace Tubes_Stima
             // bfsRadioButton
             // 
             this.bfsRadioButton.AutoSize = true;
-            this.bfsRadioButton.Location = new System.Drawing.Point(39, 347);
+            this.bfsRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.bfsRadioButton.Location = new System.Drawing.Point(40, 443);
             this.bfsRadioButton.Name = "bfsRadioButton";
-            this.bfsRadioButton.Size = new System.Drawing.Size(54, 20);
+            this.bfsRadioButton.Size = new System.Drawing.Size(63, 24);
             this.bfsRadioButton.TabIndex = 12;
             this.bfsRadioButton.TabStop = true;
             this.bfsRadioButton.Text = "BFS";
@@ -180,9 +184,10 @@ namespace Tubes_Stima
             // dfsRadioButton
             // 
             this.dfsRadioButton.AutoSize = true;
-            this.dfsRadioButton.Location = new System.Drawing.Point(39, 373);
+            this.dfsRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dfsRadioButton.Location = new System.Drawing.Point(40, 469);
             this.dfsRadioButton.Name = "dfsRadioButton";
-            this.dfsRadioButton.Size = new System.Drawing.Size(55, 20);
+            this.dfsRadioButton.Size = new System.Drawing.Size(64, 24);
             this.dfsRadioButton.TabIndex = 13;
             this.dfsRadioButton.TabStop = true;
             this.dfsRadioButton.Text = "DFS";
@@ -193,9 +198,9 @@ namespace Tubes_Stima
             this.searchButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.searchButton.Location = new System.Drawing.Point(39, 414);
+            this.searchButton.Location = new System.Drawing.Point(39, 505);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(102, 32);
+            this.searchButton.Size = new System.Drawing.Size(124, 41);
             this.searchButton.TabIndex = 14;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -204,11 +209,11 @@ namespace Tubes_Stima
             // fileNameInput
             // 
             this.fileNameInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fileNameInput.Font = new System.Drawing.Font("Segoe UI Emoji", 8.2F);
+            this.fileNameInput.Font = new System.Drawing.Font("Segoe UI Emoji", 12F);
             this.fileNameInput.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.fileNameInput.Location = new System.Drawing.Point(39, 240);
+            this.fileNameInput.Location = new System.Drawing.Point(40, 283);
             this.fileNameInput.Name = "fileNameInput";
-            this.fileNameInput.Size = new System.Drawing.Size(107, 26);
+            this.fileNameInput.Size = new System.Drawing.Size(206, 34);
             this.fileNameInput.TabIndex = 16;
             this.fileNameInput.Text = "e.g. \"word.pdf\"";
             this.fileNameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -229,7 +234,7 @@ namespace Tubes_Stima
             this.graphViewer.InsertingEdge = false;
             this.graphViewer.LayoutAlgorithmSettingsButtonVisible = false;
             this.graphViewer.LayoutEditingEnabled = true;
-            this.graphViewer.Location = new System.Drawing.Point(382, 110);
+            this.graphViewer.Location = new System.Drawing.Point(482, 110);
             this.graphViewer.LooseOffsetForRouting = 0.25D;
             this.graphViewer.MouseHitDistance = 0.05D;
             this.graphViewer.Name = "graphViewer";
@@ -243,7 +248,7 @@ namespace Tubes_Stima
             this.graphViewer.SaveButtonVisible = true;
             this.graphViewer.SaveGraphButtonVisible = true;
             this.graphViewer.SaveInVectorFormatEnabled = true;
-            this.graphViewer.Size = new System.Drawing.Size(748, 351);
+            this.graphViewer.Size = new System.Drawing.Size(872, 427);
             this.graphViewer.TabIndex = 17;
             this.graphViewer.TightOffsetForRouting = 0.125D;
             this.graphViewer.ToolBarIsVisible = true;
@@ -257,7 +262,7 @@ namespace Tubes_Stima
             // 
             this.timeSpentLabel.AutoSize = true;
             this.timeSpentLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeSpentLabel.Location = new System.Drawing.Point(406, 464);
+            this.timeSpentLabel.Location = new System.Drawing.Point(507, 540);
             this.timeSpentLabel.Name = "timeSpentLabel";
             this.timeSpentLabel.Size = new System.Drawing.Size(94, 22);
             this.timeSpentLabel.TabIndex = 18;
@@ -268,7 +273,7 @@ namespace Tubes_Stima
             // 
             this.resultLabel.AutoSize = true;
             this.resultLabel.Font = new System.Drawing.Font("Segoe UI Emoji", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(406, 499);
+            this.resultLabel.Location = new System.Drawing.Point(507, 575);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(76, 22);
             this.resultLabel.TabIndex = 19;
@@ -278,7 +283,7 @@ namespace Tubes_Stima
             // hyperlinkPlaceholder
             // 
             this.hyperlinkPlaceholder.AutoSize = true;
-            this.hyperlinkPlaceholder.Location = new System.Drawing.Point(407, 530);
+            this.hyperlinkPlaceholder.Location = new System.Drawing.Point(508, 606);
             this.hyperlinkPlaceholder.Name = "hyperlinkPlaceholder";
             this.hyperlinkPlaceholder.Size = new System.Drawing.Size(79, 16);
             this.hyperlinkPlaceholder.TabIndex = 21;
@@ -291,7 +296,7 @@ namespace Tubes_Stima
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1135, 661);
+            this.ClientSize = new System.Drawing.Size(1365, 768);
             this.Controls.Add(this.hyperlinkPlaceholder);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.timeSpentLabel);
@@ -313,6 +318,7 @@ namespace Tubes_Stima
             this.Controls.Add(this.title);
             this.Name = "UI";
             this.Text = "Folder Crawler";
+            this.Load += new System.EventHandler(this.UI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

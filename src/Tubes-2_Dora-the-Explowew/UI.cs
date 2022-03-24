@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
 
@@ -16,6 +15,7 @@ namespace Tubes_Stima
         private string filename;
         private bool findAll = false;
         public List<LinkLabel> labels = new List<LinkLabel>();
+
         public UI()
         {
             InitializeComponent();
@@ -40,11 +40,11 @@ namespace Tubes_Stima
 
         private void placelabels()
         {
-            int topvalue = 430;
+            int topvalue = 490;
             foreach (LinkLabel item in labels)
             {
                 item.AutoSize = true;
-                item.Location = new System.Drawing.Point(315, topvalue);
+                item.Location = new System.Drawing.Point(382, topvalue);
                 item.Size = new System.Drawing.Size(79, 16);
                 item.TabIndex = 21;
                 item.TabStop = true;
@@ -58,6 +58,11 @@ namespace Tubes_Stima
 
         private void load_result(string method)
         {
+            foreach (LinkLabel item in labels)
+            {
+                this.Controls.Remove(item);
+            }
+
             labels.Clear();
             if (method == "BFS")
             {
@@ -144,6 +149,10 @@ namespace Tubes_Stima
             {
                 MessageBox.Show("Root folder cannot be null!", "Message");
             }
+            else if (this.fileNameInput.Text == "")
+            {
+                MessageBox.Show("Filename cannot be null!", "Message");
+            }
             else if (!this.bfsRadioButton.Checked && !this.dfsRadioButton.Checked)
             {
 
@@ -173,6 +182,11 @@ namespace Tubes_Stima
                 this.resultLabel.Visible = true;
                 this.timeSpentLabel.Text = String.Format("Time spent: {0:0.0#} s", sw.Elapsed.TotalMilliseconds / 1000);
             }
+        }
+
+        private void UI_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
