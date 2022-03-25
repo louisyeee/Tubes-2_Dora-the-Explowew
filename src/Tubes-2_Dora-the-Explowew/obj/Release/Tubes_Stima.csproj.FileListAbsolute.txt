@@ -19,3 +19,12 @@ C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explo
 C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\obj\Release\Tubes_Stima.csproj.CopyComplete
 C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\obj\Release\Tubes-2_Dora-the-Explowew.exe
 C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\obj\Release\Tubes-2_Dora-the-Explowew.pdb
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\bin\Release\Tubes-2_Dora-the-Explowew.exe.manifest
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\bin\Release\Tubes-2_Dora-the-Explowew.application
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\obj\Release\Tubes-2_Dora-the-Explowew.exe.manifest
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\src\Tubes-2_Dora-the-Explowew\obj\Release\Tubes-2_Dora-the-Explowew.application
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\bin\Tubes-2_Dora-the-Explowew.exe.config
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\bin\Tubes-2_Dora-the-Explowew.exe.manifest
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\bin\Tubes-2_Dora-the-Explowew.application
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\bin\Tubes-2_Dora-the-Explowew.exe
+C:\Users\jvsit\source\repos\Tubes-2_Dora-the-Explowew\bin\Tubes-2_Dora-the-Explowew.pdb
