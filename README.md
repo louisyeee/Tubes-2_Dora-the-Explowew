@@ -3,7 +3,18 @@ Hi! Pada tugas besar 2 IF2211 Strategi Algoritma ini kami, kelompok Dora the Exp
 
 ## Requirement
 Program ini hanya bisa dijalankan di sistem operasi Windows
+1. [Visual Studio](https://visualstudio.microsoft.com/)
+2. [Microsoft Automatic Graph Layout](https://github.com/microsoft/automatic-graph-layout)
+3. [Windows API Code Pack](https://www.nuget.org/packages/WindowsAPICodePack/)
 ## Get Started
+Untuk melakukan compile pada program, dapat dilakukan cara sebagai berikut:
+1. Buka solution Tubes_Stima (Tubes_Stima.sln) pada Visual Studio
+2. Pada tab Build, pilih Build Tubes_Stima dengan tipe Release
+![image](https://user-images.githubusercontent.com/64909665/160079741-24afda72-317f-4e32-b986-63eca4d78662.png)
+4. Hasil compile akan terdapat pada folder Tubes2_13520063/bin
+5. Letak output compile juga dapat disesuaikan dengan memilih properties pada nama project
+![image](https://user-images.githubusercontent.com/64909665/160079805-563b1696-cb67-4b74-b4bc-0b247be923a6.png)
+
 Program sudah kamu compile sebelumnya dan bisa langsung digunakan. Untuk menggunakan program silakan mengikuti langkah-langkah berikut:
 1. Buka folder bin dan jalankan executable "Tubes-2_Dora-the-Explowew.exe"
 2. Program akan membuka sebuah window seperti berikut
